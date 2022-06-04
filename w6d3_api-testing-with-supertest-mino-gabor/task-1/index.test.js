@@ -19,6 +19,12 @@ test("Has the structure { success: true }", function () {
   const actual = {
     success: true,
   };
+
+  const expected = {
+    success: true,
+  };
+
+  expect(actual).toEqual(expected);
 });
 
 /**
@@ -38,6 +44,11 @@ test("Has the structure { copiesSold: any number, title: any string }", function
     copiesSold: 5014,
     title: "THE LIGHTHOUSE (1984)",
   };
+  const expected = {
+    copiesSold: expect.any(Number),
+    title: expect.any(String),
+  };
+  expect(actual).toEqual(expected);
 });
 
 /**
@@ -56,7 +67,7 @@ test("Has the structure { copiesSold: any number, title: any string }", function
  *
  * The test has been partially written for you, but you'll need to complete it.
  */
-test("Has the structure { success: true, payload: { hasAuthenticated: true, isAdmin: false, userId: any number } }", function () {
+test("Has the structure { success: true, payload: { hasAuthenticated: true, isAdmin: false, userId: any number } }", async function () {
   async function getAuthentication() {
     return {
       success: true,
@@ -67,6 +78,16 @@ test("Has the structure { success: true, payload: { hasAuthenticated: true, isAd
       },
     };
   }
+  const actual = {
+    success: expect.any(Boolean),
+    payload: {
+      hasAuthenticated: expect.any(Boolean),
+      isAdmin: expect.any(Boolean),
+      userId: expect.any(Number),
+    },
+  };
+  const data = await getAuthentication();
+  expect(data).toEqual(actual);
 });
 
 /**
@@ -83,14 +104,27 @@ test("Has the structure { success: true, payload: { hasAuthenticated: true, isAd
  *
  * This time the test has not been written for you, you'll need to write it from scratch.
  */
-async function getUsernames() {
-  return {
-    success: true,
+test("asynchronous function `getUsernames`, when called, resolves to an object that has the following structure: {success: true, payload: an array of objects", async function () {
+  async function getUsernames() {
+    return {
+      success: true,
+      payload: [
+        { username: "A" },
+        { username: "B" },
+        { username: "C" },
+        { username: "D" },
+      ],
+    };
+  }
+  const actual = {
+    success: expect.any(Boolean),
     payload: [
-      { username: "A" },
-      { username: "B" },
-      { username: "C" },
-      { username: "D" },
+      { username: expect.any(String) },
+      { username: expect.any(String) },
+      { username: expect.any(String) },
+      { username: expect.any(String) },
     ],
   };
-}
+  const data = await getUsernames();
+  expect(data).toEqual(actual);
+});
