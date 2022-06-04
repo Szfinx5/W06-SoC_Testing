@@ -99,3 +99,9 @@ test("Testing for 'Kraftfahrzeughaftpflichtversicherung'.", () => {
   const expected = 84;
   expect(actual).toBe(expected);
 });
+
+test("Testing for 'Kraft!!'.", () => {
+  expect(() => {
+    calculateScrabbleScore("Kraft!!");
+  }).toThrow();
+});

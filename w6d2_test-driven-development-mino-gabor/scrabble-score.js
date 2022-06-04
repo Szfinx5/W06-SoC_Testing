@@ -3,44 +3,57 @@ export function calculateScrabbleScore(word) {
   let counter = 0;
 
   for (let i = 0; i < wordArray.length; i++) {
-    if (
-      wordArray[i] === "A" ||
-      wordArray[i] === "E" ||
-      wordArray[i] === "I" ||
-      wordArray[i] === "O" ||
-      wordArray[i] === "U" ||
-      wordArray[i] === "L" ||
-      wordArray[i] === "N" ||
-      wordArray[i] === "R" ||
-      wordArray[i] === "S" ||
-      wordArray[i] === "T"
-    )
-      counter = counter + 1;
+    switch (wordArray[i]) {
+      case "A":
+      case "E":
+      case "I":
+      case "O":
+      case "U":
+      case "L":
+      case "N":
+      case "R":
+      case "S":
+      case "T":
+        counter += 1;
+        break;
 
-    if (wordArray[i] === "D" || wordArray[i] === "G") counter = counter + 2;
+      case "D":
+      case "G":
+        counter += 2;
+        break;
 
-    if (
-      wordArray[i] === "B" ||
-      wordArray[i] === "C" ||
-      wordArray[i] === "M" ||
-      wordArray[i] === "P"
-    )
-      counter = counter + 3;
+      case "B":
+      case "C":
+      case "M":
+      case "P":
+        counter += 3;
+        break;
 
-    if (
-      wordArray[i] === "F" ||
-      wordArray[i] === "H" ||
-      wordArray[i] === "V" ||
-      wordArray[i] === "W" ||
-      wordArray[i] === "Y"
-    )
-      counter += 4;
+      case "F":
+      case "H":
+      case "V":
+      case "W":
+      case "Y":
+        counter += 4;
+        break;
 
-    if (wordArray[i] === "K") counter += 5;
+      case "K":
+        counter += 5;
+        break;
 
-    if (wordArray[i] === "J" || wordArray[i] === "X") counter += 8;
+      case "J":
+      case "X":
+        counter += 8;
+        break;
 
-    if (wordArray[i] === "Q" || wordArray[i] === "Z") counter += 10;
+      case "Q":
+      case "Z":
+        counter += 10;
+        break;
+
+      default:
+        throw new Error(`Error, ${wordArray[i]} is not a letter!`);
+    }
   }
   return counter;
 }
