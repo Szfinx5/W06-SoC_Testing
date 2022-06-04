@@ -6,10 +6,12 @@
     "morgan": "^1.10.0"
   },
   "scripts": {
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "dev": "nodemon ./server.js"
   },
   "devDependencies": {
     "jest": "^28.1.0",
+    "nodemon": "^2.0.16",
     "supertest": "^6.2.3"
   },
   "type": "module"
