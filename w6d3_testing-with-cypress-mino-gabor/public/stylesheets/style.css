@@ -1,0 +1,15 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+a {
+  color: #00B7FF;
+}
+
+ol {
+  font-size: 1.5rem;
+}
