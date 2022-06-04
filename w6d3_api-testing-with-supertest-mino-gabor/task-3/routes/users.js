@@ -39,7 +39,7 @@ router.get("/:id", async (req, res) => {
 router.post("/", async (req, res) => {
   const { username } = req.body;
   const createdUser = await usersModel.createUser({ username });
-
+  console.log(createdUser.username);
   res.status(201).json({
     success: true,
     payload: createdUser,
