@@ -1,7 +1,7 @@
 import { query } from "../index.js";
 import { tweets } from "../../libs/data.js";
 
-async function populateTweetsTable() {
+export async function populateTweetsTable() {
   for (let i = 0; i < tweets.length; i++) {
     const res = await query(
       `INSERT INTO tweets (name, tweet) VALUES ($1, $2) RETURNING *;`,
@@ -11,4 +11,4 @@ async function populateTweetsTable() {
   }
 }
 
-populateTweetsTable();
+//populateTweetsTable();
